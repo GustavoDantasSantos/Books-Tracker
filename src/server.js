@@ -1,6 +1,7 @@
 require('dotenv').config();
 const db = require('../configs/database');
 const Express = require('express');
+const bookRoutes = require('../src/routes/bookRoutes');
 
 const App = Express();
 db.mongoose
@@ -13,6 +14,7 @@ db.mongoose
 
 App.use(Express.json());
 App.use(Express.urlencoded({extended: true}));
+App.use('/book', bookRoutes);
 
 App.listen(process.env.SERVER_PORT, (req, res) => {
     console.log(`Server UP on port: ${process.env.SERVER_PORT}`);
