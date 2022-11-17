@@ -1,4 +1,4 @@
-const Book = require('../../models/books');
+const Book = require('../models/books');
 
 module.exports = class CreateBookController{
     static async execute(req, res){
