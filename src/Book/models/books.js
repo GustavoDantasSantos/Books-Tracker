@@ -12,7 +12,7 @@ const Book = mongoose.Schema({
     },
     addOnList: {
         type: Date,
-        required: true
+        default: new Date()
     },
     completionDate: {
         type: Date,

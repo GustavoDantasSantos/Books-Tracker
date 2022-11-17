@@ -1,19 +1,14 @@
-const Book = require('../models/books');
+const CreateBookService = require('../services/CreateBookService');
 
 module.exports = class CreateBookController{
     static async execute(req, res){
-        
-        const book = new Book({
+        const data = {
             title: req.body.title,
-            autor: req.body.autor,
-            addOnList: new Date(),
-        });
+            autor: req.body.autor
+        };
 
-        book.save(book)
-            .then(() => {
-                res.status(201).send(book);
-            }).catch((err) => {
-                res.status(500).send({message: 'Not able create a book'});
-            });
-    }
+        const book = await CreateBookService.execute(data);
+        
+        res.status(200).send(book)
+    };
 };
