@@ -1,6 +1,7 @@
 require('dotenv').config();
-const db = require('../configs/database');
 const Express = require('express');
+const cors = require('cors');
+const db = require('../configs/database');
 const appRoutes = require('./routes/appRoutes');
 
 const App = Express();
@@ -13,6 +14,7 @@ db.mongoose
     });
 
 App.use(Express.json());
+App.use(cors());
 App.use(Express.urlencoded({extended: true}));
 App.use('/', appRoutes);
 
