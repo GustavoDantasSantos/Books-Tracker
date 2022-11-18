@@ -1,3 +1,4 @@
+const { findByIdAndUpdate, findOneAndUpdate, updateOne } = require('../models/books');
 const Book = require('../models/books');
 
 module.exports = class BookRepository {
@@ -18,5 +19,10 @@ module.exports = class BookRepository {
 
   async delete(_id) {
     return await Book.findByIdAndDelete(_id);
+  }
+
+  async update(id, body){
+    console.log(id, body);
+    await Book.findByIdAndUpdate(id, body);
   }
 }
