@@ -15,4 +15,8 @@ module.exports = class BookRepository {
   async findById(_id) {
     return await Book.findOne({_id})
   }
+
+  async delete(_id) {
+    return await Book.findByIdAndDelete(_id);
+  }
 }
