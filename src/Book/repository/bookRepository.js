@@ -22,7 +22,6 @@ module.exports = class BookRepository {
   }
 
   async update(id, body){
-    console.log(id, body);
     await Book.findByIdAndUpdate(id, body);
   }
 }
